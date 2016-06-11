@@ -4,7 +4,7 @@ var http = require('http').Server(app);
 // var Fitbit = require('fitbit');
 var io = require('socket.io')(http);
 var socket = io;
-var config = require('./config/app')
+//var config = require('./config/app')
 
 // app.use(express.cookieParser());
 // app.use(express.session({secret: 'hekdhthigib'}));
