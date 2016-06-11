@@ -1,14 +1,14 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var Fitbit = require('fitbit');
+// var Fitbit = require('fitbit');
 var io = require('socket.io')(http);
 var socket = io;
 var config = require('./config/app')
 
-app.use(express.cookieParser());
-app.use(express.session({secret: 'hekdhthigib'}));
-app.listen(3000);
+// app.use(express.cookieParser());
+// app.use(express.session({secret: 'hekdhthigib'}));
+// app.listen(3000);
 
 var google = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
