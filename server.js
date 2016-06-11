@@ -5,21 +5,21 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var socket = io;
 
-var WebSocketServer = require('ws').Server;
+// var WebSocketServer = require('ws').Server;
 
-var port = 8888; 
+// var port = 8888; 
 
-var wss = new WebSocketServer({port: port});
+// var wss = new WebSocketServer({port: port});
 
 
 
-wss.on('connection', function(ws) {
-    ws.on('message', function(message) {
-        console.log('received: %s', message);
-        ws.send('echo: ' + message);
-    });
-    ws.send('connected');
-});
+// wss.on('connection', function(ws) {
+//     ws.on('message', function(message) {
+//         console.log('received: %s', message);
+//         ws.send('echo: ' + message);
+//     });
+//     ws.send('connected');
+// });
  
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
@@ -33,7 +33,14 @@ app.get('/', function(req, res){
 // REST call for getting sleep data
 app.get('/sleep', function(req, res){
 	res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ action: "sleep"}));
+	
+	// get data from fitbit
+	var sleepdata = {
+		"sleep_duration": 436
+	};
+	socket.emit('message', sleepdata);
+
+    res.send(JSON.stringify(sleepdata));
 });
 
 // REST call for getting calendar
