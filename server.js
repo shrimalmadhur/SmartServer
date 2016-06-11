@@ -117,14 +117,14 @@ app.get('/calendar', function(req, res){
 		data: [
 			{
 				name: "Meeting with Bhawna",
-				start: "09:00",
-				end: "10:00",
+				start: "2016-01-04T05:00:00-09:00",
+				end: "2016-01-04T07:00:00-10:00",
 
 			},
 			{
 				name: "All hands",
-				start: "11:00",
-				end: "12:00",
+				start: "2016-01-04T09:00:00-11:00",
+				end: "2016-01-04T10:00:00-12:00",
 
 			}
 		]
