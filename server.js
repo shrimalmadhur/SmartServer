@@ -4,7 +4,7 @@ var http = require('http').Server(app);
 // var Fitbit = require('fitbit');
 var io = require('socket.io')(http);
 var socket = io;
-var config = require('./config/app')
+// var config = require('./config/app')
 
 // app.use(express.cookieParser());
 // app.use(express.session({secret: 'hekdhthigib'}));
@@ -81,6 +81,7 @@ app.get('/activity', function(req, res){
 		floors: 10,
 		active_minutes: 45
 	};
+	socket.emit('message', result);
     res.send(JSON.stringify(result));
 });
 
@@ -103,6 +104,7 @@ app.get('/friends', function(req, res){
 			}
 		]
 	};
+	socket.emit('message', result);
     res.send(JSON.stringify(result));
 });
 
@@ -127,6 +129,7 @@ app.get('/calendar', function(req, res){
 			}
 		]
 	};
+	socket.emit('message', result);
     res.send(JSON.stringify(result));
 });
 
@@ -159,6 +162,7 @@ app.get('/route', function(req, res){
 			}
 		]
 	};
+	socket.emit('message', result);
     res.send(JSON.stringify(result));
 });
 
